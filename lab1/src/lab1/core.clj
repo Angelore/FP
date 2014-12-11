@@ -17,24 +17,20 @@
 (def Rb (* 1.5 Ra))   ; Rb, for reducing a point potential
 (def EpsilonTop 0.5)  ; EpsilonTop, the highest margin for estimation
 (def EpsilonBot 0.15) ; EpsilonBot, the lowest margin for estimation
+(def alpha (/ 4 (* Ra Ra)))  ; Calculate alpha param for calculating point potential.
+(def beta (/ 4 (* Rb Rb)))    ; Calculate beta param for calculating point potential.
 
-(defn alpha
-  "Calculate alpha param for calculating point potential." ;Change to const?
-  []
-  (/ 4 (* Ra Ra)))
 
-(defn beta
-  "Calculate beta param for calculating point potential."
-  []
-  (/ 4 (* Rb Rb)))
-
-(alpha)
-(beta)
 
 (defn parse-string
   "Returns a vector with numbers to process"
   [inputStr]
   (into [] (map read-string (drop-last (map string/trim (string/split inputStr #",")))))) ; Check performance in comparsion to butlast? Whatever
+
+(defn parse-blob
+  "Returns a list of vectors with coordinates"
+  [blob]
+  (filter #(not= 0 (count %)) (map parse-string (string/split-lines blob))))
 
 (defn -main
   [& args]

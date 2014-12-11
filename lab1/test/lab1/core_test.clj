@@ -15,7 +15,22 @@
   (testing "The string was parsed incorrectly."
     (is (= [5.1 3.5 1.4 0.2] (parse-string "5.1,3.5,1.4,0.2,Iris-setosa")))))
 
+(deftest parsing-blob
+  (testing "The blob was parsed incorrectly."
+    (is (= '([5.1 3.5 1.4 0.2]
+             [4.9 3.0 1.4 0.2]
+             [4.7 3.2 1.3 0.2])
+           (parse-blob "5.1,3.5,1.4,0.2,Iris-setosa
+                        4.9,3.0,1.4,0.2,Iris-setosa
+                        4.7,3.2,1.3,0.2,Iris-setosa
+                        ")))))
+
 (hamming-test)
 (euclidean-test)
 (parsing-test)
+(parsing-blob)
+
 ;5.1,3.5,1.4,0.2,Iris-setosa
+;4.9,3.0,1.4,0.2,Iris-setosa
+;4.7,3.2,1.3,0.2,Iris-setosa
+;
