@@ -1,6 +1,6 @@
 (ns lab1.core
   (:require [clojure.string :as string]
-            )
+            [clojure.java.io :refer :all])
   )
 
 
@@ -113,27 +113,17 @@
   [points]
   (sort-by #(- (:potential %)) points))
 
-(defn find-max-potential
-  "Find a point with maximum potential."
-  [points]
-  ;(max-key #((:a %)) points)) <- top bloody lel mate
-  (reduce #(max-key :potential %1 %2) points))
+;(defn find-max-potential
+;  "Find a point with maximum potential."
+;  [points]
+;  ;(max-key #((:a %)) points)) <- top bloody lel mate
+;  (reduce #(max-key :potential %1 %2) points))
 
 (defn find-min-distance
   "Finds the minimal distance between the point and the list."
   [point points calculation-method]
   (reduce min (map #(calculation-method (:coordinates point)(:coordinates %)) points)))
 
-;(let [points (pointify (parse-file "irises.txt"))]
-;  (find-min-distance (first points) (rest points) hamming-distance-square))
-
-;(let [points (pointify (parse-file "irises.txt"))]
-;  (find-max (calculate-potentials points hamming-distance-square)))
-
-;(find-max-potential [{:potential 30 :position 149}
-;                    {:potential 28 :position 148}
-;                    {:potential 29 :position 147}])
-(<= 1 1)
 (defn run-algorithm
   "There we go."
   [points calculation-method]
@@ -146,19 +136,22 @@
            (> (:potential (first points)) (* EpsilonTop (:potential (first centers))))
              (recur (conj centers (first points)) (sort-points (revise-point-potentials (last centers) (rest points) calculation-method)))
            (< (:potential (first points)) (* EpsilonBot (:potential (first centers))))
-             (map #(println %) centers)
-           (<= 1 (+ (/ (find-min-distance (first points) centers calculation-method) Ra) (/ (:potential (first points)) (:potential (first centers))))
+             (doall (map #(println %) centers)) ;;(println centers) ;;(map #(println %) (filter #((complement nil?) %) centers))
+           (<= 1 (+ (/ (find-min-distance (first points) centers calculation-method) Ra) (/ (:potential (first points)) (:potential (first centers)))))
+             (recur (conj centers (first points)) (sort-points (revise-point-potentials (last centers) (rest points) calculation-method)))
+           :else (recur centers (sort-points (conj (assoc (first points) :potential 0) (rest points))))
+         )
        )
     )
   )
 )
 ;; End Core calculations
 
-(let [points (pointify (parse-file "irises.txt"))]
-  (sort-points (calculate-potentials points hamming-distance-square)))
-;(let [points  (pointify (parse-file "irises.txt"))]
-;(point-potential (first points) points hamming-distance-square)
-;)
+
+;; Test launch!
+;(run-algorithm (pointify (parse-file "irises.txt")) euclidean-distance-square)
+;; End Test launch!
+
 
 ;; Entry point
 (defn -main
@@ -166,7 +159,7 @@
   (if (< (count args) 2)
     (println "Not enough arguments. Please go and stay go.")
     (do
-      (run-algorithm (pointify (parse-file)) (if (= (last args) "h") hamming-distance-square euclidean-distance-square))
+      (run-algorithm (pointify (parse-file (first args))) (if (= (last args) "h") hamming-distance-square euclidean-distance-square))
     )
   )
 )
