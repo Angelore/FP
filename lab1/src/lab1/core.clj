@@ -52,8 +52,6 @@
     (recur (conj result {:coordinates (last list) ; <- seriously fuck this one
                           :position (count (drop-last list))})
            (drop-last list)))))
-
-;(pointify (parse-file "butterfly.txt"))
 ;; End Parsing and whatnot
 
 
@@ -105,36 +103,47 @@
   [points calculation-method]
   (map #(point-potential % points calculation-method) points))
 
-(defn find-max
-  "Find a point with maximum potential"
+(defn revise-point-potentials
+  "Iterate through points and revise their potentials."
+  [center points calculation-method]
+  (map #(revise-point-potential center % calculation-method) points))
+
+(defn sort-points
+  "Sort the list with points by potential (descending)."
+  [points]
+  (sort-by #(- (:potential %)) points))
+
+(defn find-max-potential
+  "Find a point with maximum potential."
   [points]
   ;(max-key #((:a %)) points)) <- top bloody lel mate
   (reduce #(max-key :potential %1 %2) points))
 
-(let [points (pointify (parse-file "irises.txt"))]
-  (find-max (calculate-potentials points hamming-distance-square)))
+(defn find-min-distance
+  "Finds the minimal distance between the point and the list."
+  [point points calculation-method]
+  (reduce min (map #(calculation-method (:coordinates point)(:coordinates %)) points)))
 
-(find-max [{:potential 30 :position 149}
-           {:potential 28 :position 148}
-           {:potential 29 :position 147}])
+;(let [points (pointify (parse-file "irises.txt"))]
+;  (find-min-distance (first points) (rest points) hamming-distance-square))
 
-;(apply max-key #(:a) [{:a 5 :b 2}{:a 2 :b 5}{:a 4 :b 5}])
-;(find-max [{:a 1 :b 2}{:a 2 :b 5}{:a 4 :b 5}])
-;(max-potential-point {:a 5 :b 2}{:a 2 :b 5}{:a 4 :b 5})
+;(let [points (pointify (parse-file "irises.txt"))]
+;  (find-max (calculate-potentials points hamming-distance-square)))
 
-(reduce #(max-key :a %1 %2) [{:a 5 :b 2}{:a 6 :b 5}{:a 4 :b 5}])
+;(find-max-potential [{:potential 30 :position 149}
+;                    {:potential 28 :position 148}
+;                    {:potential 29 :position 147}])
 
-;(defn max-potential-point [points]
-;  (apply max-key #((% :potential)) points))
 
-;(defn max-potential-point [points]
-;  (apply max-key
-;    (fn [point] (point :potential))
-;    points))
-
+(defn run-algorithm
+  "There we go."
+  [points calculation-method]
+  ()
+  )
 ;; End Core calculations
-;max-key
 
+(let [points (pointify (parse-file "irises.txt"))]
+  (sort-points (calculate-potentials points hamming-distance-square)))
 ;(let [points  (pointify (parse-file "irises.txt"))]
 ;(point-potential (first points) points hamming-distance-square)
 ;)
@@ -144,7 +153,9 @@
   [& args]
   (if (< (count args) 2)
     (println "Not enough arguments. Please go and stay go.")
-    (do)
+    (do
+      (run-algorithm (pointify (parse-file)) (if (= (last args) "h") hamming-distance-square euclidean-distance-square))
+    )
   )
 )
 ;; End Entry point
