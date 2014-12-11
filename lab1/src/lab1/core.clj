@@ -44,20 +44,16 @@
   (parse-blob (slurp fileName))) ; Worked on the first try. Holy crackers!
 
 (defn pointify
-  "Turns a list of vectors into a list of maps"
+  "Turns a list of vectors into a vector of maps"
   [list]
-  (loop [result '()
-        list list]
+  (loop [result [] list list]
     (if (= 0 (count list))
     result
-    (recur (conj result ({:coordinates (into [] (last list))
-                          :position (count (drop-last list))}))
-           (drop-last list)))
-    ))
+    (recur (conj result {:coordinates (last list) ; <- seriously fuck this one
+                          :position (count (drop-last list))})
+           (drop-last list)))))
 
-(pointify (parse-file "butterfly.txt"))
-
-  ;(reduce conj '() ({:coordinates }))
+;(pointify (parse-file "butterfly.txt"))
 ;; End Parsing and whatnot
 
 
@@ -74,13 +70,34 @@
 
 (defn point-potential
   "Calculates the potential of a single point.
-  Point: a point which potential needs to be calculated;
-  Points: a list of all points;
-  calculation-method: hamming or euclidean calc. method."
+    Point: a point which potential needs to be calculated;
+    Points: a list of all points;
+    calculation-method: hamming or euclidean calc. method."
   [point points calculation-method]
-  (assoc point :potential ()))
-;; End Core calculations
+  (assoc point :potential                                               ; Add a property to the map
+    (reduce
+      #(+ %1                                                            ; Accumulate all potentials, starting with 0
+        (potential
+          (calculation-method (:coordinates point) (:coordinates %2))   ; Calculate the distance between a point and a point from the list
+        )
+      ) 0 points                                                        ; Start with 0
+    )
+  )
+)
 
+(defn revise-point-potential
+  "Calculates the revisedpotential of a single point."
+  [center point calculation-method]
+  (
+
+  )
+)
+;; End Core calculations
+;max-key
+
+;(let [points  (pointify (parse-file "irises.txt"))]
+;(point-potential (first points) points hamming-distance-square)
+;)
 
 ;; Entry point
 (defn -main

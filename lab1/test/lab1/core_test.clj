@@ -29,11 +29,23 @@
   (testing "The file was parsed incorrectly. Maybe. Maybe not. It's classified."
     (is (= 15 (count (parse-file "butterfly.txt"))))))
 
+(deftest pointify-test
+  (testing "The list was parsed incorrectly."
+    (is (= 15 (count (pointify (parse-file "butterfly.txt")))))))
+
+(deftest potential-calculation-test
+  (testing "The potential was computed incorrectly."
+    (is (= 30.703912665847533 (do
+                                (let [points  (pointify (parse-file "irises.txt"))]
+                                  (:potential (point-potential (first points) points hamming-distance-square))))))))
+
 (hamming-test)
 (euclidean-test)
 (parsing-test)
 (parsing-blob)
 (parsing-file)
+(pointify-test)
+(potential-calculation-test)
 
 ;5.1,3.5,1.4,0.2,Iris-setosa
 ;4.9,3.0,1.4,0.2,Iris-setosa
