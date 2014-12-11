@@ -133,13 +133,25 @@
 ;(find-max-potential [{:potential 30 :position 149}
 ;                    {:potential 28 :position 148}
 ;                    {:potential 29 :position 147}])
-
-
+(<= 1 1)
 (defn run-algorithm
   "There we go."
   [points calculation-method]
-  ()
+  (let [points (sort-points (calculate-potentials points calculation-method))]   ; Initialize potentials
+    (let [centers (conj [] (first points))
+          points (rest points)]
+       (loop [centers centers
+              points (sort-points (revise-point-potentials (last centers) points calculation-method))]
+         (cond
+           (> (:potential (first points)) (* EpsilonTop (:potential (first centers))))
+             (recur (conj centers (first points)) (sort-points (revise-point-potentials (last centers) (rest points) calculation-method)))
+           (< (:potential (first points)) (* EpsilonBot (:potential (first centers))))
+             (map #(println %) centers)
+           (<= 1 (+ (/ (find-min-distance (first points) centers calculation-method) Ra) (/ (:potential (first points)) (:potential (first centers))))
+       )
+    )
   )
+)
 ;; End Core calculations
 
 (let [points (pointify (parse-file "irises.txt"))]
