@@ -86,12 +86,52 @@
 )
 
 (defn revise-point-potential
-  "Calculates the revisedpotential of a single point."
+  "Calculates the revised potential for a single point."
   [center point calculation-method]
-  (
-
+  (assoc point :potential
+    (- (:potential point)
+       (*
+         (revised-potential
+           (calculation-method (:coordinates point)(:coordinates center))
+         )
+         (:potential center)
+       )
+    )
   )
 )
+
+(defn calculate-potentials
+  "Calculate potentials for all points."
+  [points calculation-method]
+  (map #(point-potential % points calculation-method) points))
+
+(defn find-max
+  "Find a point with maximum potential"
+  [points]
+  ;(max-key #((:a %)) points)) <- top bloody lel mate
+  (reduce #(max-key :potential %1 %2) points))
+
+(let [points (pointify (parse-file "irises.txt"))]
+  (find-max (calculate-potentials points hamming-distance-square)))
+
+(find-max [{:potential 30 :position 149}
+           {:potential 28 :position 148}
+           {:potential 29 :position 147}])
+
+;(apply max-key #(:a) [{:a 5 :b 2}{:a 2 :b 5}{:a 4 :b 5}])
+;(find-max [{:a 1 :b 2}{:a 2 :b 5}{:a 4 :b 5}])
+;(max-potential-point {:a 5 :b 2}{:a 2 :b 5}{:a 4 :b 5})
+
+(reduce #(max-key :a %1 %2) [{:a 5 :b 2}{:a 6 :b 5}{:a 4 :b 5}])
+
+;(defn max-potential-point [points]
+;  (apply max-key #((% :potential)) points))
+
+;(defn max-potential-point [points]
+;  (apply max-key
+;    (fn [point] (point :potential))
+;    points))
+
 ;; End Core calculations
 ;max-key
 
