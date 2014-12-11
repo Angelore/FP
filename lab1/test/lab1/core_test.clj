@@ -5,7 +5,7 @@
 
 (deftest hamming-test
   (testing "Hamming distance has been computed incorrectly."
-    (is (= 2 (hamming-distance [1 2 3] [1 3 5])))))
+    (is (= 2 (hamming-distance-square [1 2 3] [1 3 5])))))
 
 (deftest euclidean-test
   (testing "Euclidean distance has been computed incorrectly."
