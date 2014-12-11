@@ -9,9 +9,13 @@
 
 (deftest euclidean-test
   (testing "Euclidean distance has been computed incorrectly."
-    (is (= 5 (euclidean-distance [1 2 3] [1 3 5])))))
+    (is (= 5 (euclidean-distance-square [1 2 3] [1 3 5])))))
+
+(deftest parsing-test
+  (testing "The string was parsed incorrectly."
+    (is (= [5.1 3.5 1.4 0.2] (parse-string "5.1,3.5,1.4,0.2,Iris-setosa")))))
 
 (hamming-test)
 (euclidean-test)
-
+(parsing-test)
 ;5.1,3.5,1.4,0.2,Iris-setosa
