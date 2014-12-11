@@ -1,14 +1,14 @@
-# lab1
+# Functional Programming - Lab 1
 
-A Clojure library designed to ... well, that part is up to you.
+Self-descriptive.
 
 ## Usage
 
-FIXME
+lein run [filepath] [h|e]
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Stason
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
