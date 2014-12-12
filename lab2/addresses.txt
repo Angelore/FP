@@ -1,2 +1,3 @@
 http://habrahabr.ru/info/about/
-https://www.reddit.com/about/
+http://valvesoftware.com/
+http://badurl.com/verybadurl

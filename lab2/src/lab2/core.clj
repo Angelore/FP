@@ -15,22 +15,31 @@
 
 (un-nil [nil 2 3 nil 4])
 
+(defn uuid []
+  "GEt a random uuid."
+  (str (java.util.UUID/randomUUID)))
+
 (defn create-node [id parent uris depth uri status children location]
   "Create a node in a tree" ; data structure acquired from Savich Valery
   {:id id :parent parent :uris uris :depth depth :uri uri :status status :children children :location location})
 
+(defn create-root-node
+  "Creates a root node to start algorithm from."
+  [urls depth]
+  (create-node (uuid) {:id nil} urls depth "root" nil (atom []) nil))
+
 (defn fetch-url
   "Downloads html, if an exception occurs, sets status to 404 and headers to nil."
   [url]
-  (try+
-    (http/get url {:throw-exceptions false})
+  (try+                 ; Example here: http://stackoverflow.com/questions/20708580/try-and-slingshot-try-differences
+    (http/get url)
     ;(catch [:status 404] {:status 404 :headers nil}
     ;  (println "No longer exists!"))
     (catch Object _ {:status 404 :headers nil})
    ))
 
 (defn is-redirect-status?
-  "Determines, if the status is equal to one of the 3xx statuses/"
+  "Determines, if the status is equal to one of the 3xx statuses."
   [status]
   (reduce #(or %1 %2) (map #(= status %) '(300 301 302 303 307))))
 
@@ -70,10 +79,9 @@
 
 (defn get-urls
   "Generates a list of links in envive node list." ; Example here: https://github.com/swannodette/enlive-tutorial/
-                                                   ; This function will also return links like "/otherpage.html".
+                                                   ; This function will also return links like "/otherpage.html"
   [normalized-content]
   (un-nil (map #(:href (:attrs %)) (html/select normalized-content #{[:a]}))))
-
 
 (normalize-content (fetch-url "http://google.com"))
 (get-urls (normalize-content (fetch-url "http://google.com")))
@@ -96,8 +104,90 @@
 ;; End Parsing files and whatnot
 
 
-;; Test launch!
+;; Core functions
+(defn generate-tree
+  "Genereates a tree of nodes, returns the root node."
+  [filename depth]
+  (let [urls (parse-file filename)
+        parent (create-root-node urls depth)]
+    (iterate-node parent urls depth)
+    parent
+  )
+)
 
+(defn iterate-node
+  "Iterates through nodes recursively."
+  [node urls depth]
+  (let [new-depth (dec depth)]
+    (if (= depth 0)
+      node
+      (doseq [child (pmap #(parse-page node % depth) urls)]     ; http://clojuredocs.org/clojure.core/doseq
+        (iterate-node child (:uris child) new-depth))
+    )
+  )
+)
+
+(defn parse-page
+  "Parses the page, returns child node."
+  [parent url depth]
+  ;(println url)
+  (let [content (fetch-url url)
+        normalized-content (normalize-content content)
+        status (:status content)
+        id (uuid)]
+    (swap! (:children parent) conj
+      (if (not (nil? normalized-content))
+        (create-node
+           id
+           (:id parent)
+           (get-urls normalized-content)
+           depth
+           url
+           status
+           (atom [])
+           (get-redirected-url content)
+        )
+        (create-node
+           id
+           (:id parent)
+           '()
+           depth
+           url
+           status
+           (atom [])
+           (get-redirected-url content)
+        )
+      )
+    )
+    (:children parent)
+  )
+)
+
+(defn print-results
+  "Prints all results to the console."
+  [node nesting]
+  (let [indent (* 2 nesting)   ; Generate the resulting string.
+        uri (:uri node)
+        status-message
+          (if (= (:status node) 404)
+            " bad url."
+            (let [message (str " " (count (:uris node)) " link(s)")]
+              (if (not (nil? (:location node)))
+                (str message " redirects to " (:location node)))
+              message
+            )
+          )]
+    (if (> nesting 0)
+      (println (str (apply str (repeat indent " ")) uri status-message)))
+  )
+  (doseq [child @(:children node)] (print-results child (inc nesting)))   ; Repeat for all children
+)
+;; End Core functions
+
+(generate-tree "addresses.txt" 3)
+
+;; Test launch!
+(print-results (generate-tree "addresses.txt" 1) 0)
 ;; End Test launch!
 
 
