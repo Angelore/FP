@@ -5,3 +5,14 @@
 (deftest a-test
   (testing "FIXME, I fail."
     (is (= 0 1))))
+
+(deftest test-404
+  (testing "The 404 address was handled incorrectly."
+    (is (= 404 (:status (fetch-url "http://googfsdfasdfle.com"))))))
+
+(deftest link-count
+  (testing "The url count is not correct."
+    (is (= 11 (count (get-urls (normalize-content (fetch-url "http://google.com"))))))))
+
+(test-404)
+(link-count)

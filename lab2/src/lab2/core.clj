@@ -85,7 +85,7 @@
 
 (normalize-content (fetch-url "http://google.com"))
 (get-urls (normalize-content (fetch-url "http://google.com")))
-(html/select (normalize-content (fetch-url "http://google.com")) #{[:a]})
+(get-urls (normalize-content (fetch-url "http://google.com")) #{[:a]})
 ;; End Service functions
 
 
