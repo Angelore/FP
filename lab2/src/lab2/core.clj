@@ -1,4 +1,5 @@
-(ns lab2.core)
+(ns lab2.core
+  (:use [slingshot.slingshot :only [try+]]))
 
 ;; CRAAAAAAAAAAWLING IIIIIIIIIIIN MY SKIIIIIIIIIIIIN
 
@@ -9,6 +10,13 @@
 
 
 ;; Service functions
+(defn un-nil
+  "Removes all nils in the sequence."
+  [arg]
+  (filter #(not (nil? %)) arg))
+
+(un-nil [nil 2 3 nil 4])
+
 
 ;; End Service functions
 
