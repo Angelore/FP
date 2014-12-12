@@ -16,7 +16,7 @@
 (un-nil [nil 2 3 nil 4])
 
 (defn create-node [id parent uris depth uri status children location]
-  "Create a node in a tree" ; data structure taken from Savich Valery
+  "Create a node in a tree" ; data structure acquired from Savich Valery
   {:id id :parent parent :uris uris :depth depth :uri uri :status status :children children :location location})
 
 (defn fetch-url
@@ -31,6 +31,29 @@
 
 (:headers (fetch-url "http://google.com/nopagehere"))
 (fetch-url "http://fkasdflkajsdf.com")
+(fetch-url "file:///E:/Projects/Clojure/FP-Clojure/lab2/swannodette_enlive-tutorial.htm")
+(fetch-url "http://google.com")
+
+(defn is-html?
+  "Returns true, if input string contains 'text/html'"
+  [inputStr]
+  (contains? (set (map string/trim (string/split inputStr #";"))) "text/html"))
+
+(defn normalize-content
+  [content]
+  (let [content-type (:content-type (:headers content))]
+    (cond
+     (= 404 (:status content))
+       nil
+     (not (is-html? content-type))
+       nil
+     :else
+       (html/html-snippet (:body content))
+    )
+  )
+)
+
+(normalize-content (fetch-url "http://google.com"))
 ;; End Service functions
 
 
