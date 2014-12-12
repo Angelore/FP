@@ -1,14 +1,14 @@
-# lab2
+# Functional Pragramming - Lab2
 
-A Clojure library designed to ... well, that part is up to you.
+Execute only while playing this: https://www.youtube.com/watch?v=6n6jN330vfU Otherwise, will not work.
 
 ## Usage
 
-FIXME
+lein run [filename] [depth]
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Stason
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.

@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    
+    
+    <title>swannodette/enlive-tutorial</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="swannodette/enlive-tutorial" name="twitter:title"><meta content="enlive-tutorial - An Easy Introduction to Enlive" name="twitter:description"><meta content="https://avatars1.githubusercontent.com/u/13516?v=3&amp;s=400" name="twitter:image:src">
+<meta content="GitHub" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars1.githubusercontent.com/u/13516?v=3&amp;s=400" property="og:image"><meta content="swannodette/enlive-tutorial" property="og:title"><meta content="https://github.com/swannodette/enlive-tutorial" property="og:url"><meta content="enlive-tutorial - An Easy Introduction to Enlive" property="og:description">
+
+      <meta name="browser-stats-url" content="/_stats">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    <link rel="conduit-xhr" href="https://ghconduit.com:25035/">
+    <link rel="xhr-socket" href="https://github.com/_sockets">
+    <meta name="pjax-timeout" content="1000">
+    <link rel="sudo-modal" href="https://github.com/sessions/sudo_modal">
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="repo_source" data-pjax-transient="">
+      <meta name="google-analytics" content="UA-3769691-2">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="github" name="octolytics-app-id"><meta content="8611AD7A:1420:897FAA3:548AAB3C" name="octolytics-dimension-request_id"><meta content="7239543" name="octolytics-actor-id"><meta content="Angelore" name="octolytics-actor-login"><meta content="97754bce5481f6fbae0b2b4dd6a56c2d6147349abdb44950d0d4a7483204b959" name="octolytics-actor-hash">
+    
+    <meta content="Rails, view, files#disambiguate" name="analytics-event">
+
+    
+    
+    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="h60K/qXIsQl5qduNLl1mut0M+PEnamMxBVmIfpP6Siu3WWaLX/Tgu2nFOvlACOa0Ihfhb3dcw6HSyNoMu/pcGA==" name="csrf-token">
+
+    <link href="swannodette_enlive-tutorial_files/github-c7f434a471766a748d862b4cb294526acd6901321d901cc64028f.css" media="all" rel="stylesheet" type="text/css">
+    <link href="swannodette_enlive-tutorial_files/github2-d3255e3762ec73006730d22d2db05bd45c6ba29468f8808e238c.css" media="all" rel="stylesheet" type="text/css">
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="38cf36b78efb25a234c35bc9b920031d">
+
+      
+  <meta name="description" content="enlive-tutorial - An Easy Introduction to Enlive">
+  <meta name="go-import" content="github.com/swannodette/enlive-tutorial git https://github.com/swannodette/enlive-tutorial.git">
+
+  <meta content="13516" name="octolytics-dimension-user_id"><meta content="swannodette" name="octolytics-dimension-user_login"><meta content="488800" name="octolytics-dimension-repository_id"><meta content="swannodette/enlive-tutorial" name="octolytics-dimension-repository_nwo"><meta content="true" name="octolytics-dimension-repository_public"><meta content="false" name="octolytics-dimension-repository_is_fork"><meta content="488800" name="octolytics-dimension-repository_network_root_id"><meta content="swannodette/enlive-tutorial" name="octolytics-dimension-repository_network_root_nwo">
+  <link href="https://github.com/swannodette/enlive-tutorial/commits/master.atom" rel="alternate" title="Recent Commits to enlive-tutorial:master" type="application/atom+xml">
+
+  <script src="swannodette_enlive-tutorial_files/api.js" async="" type="text/javascript"></script></head>
+
+
+  <body class="logged_in  env-production windows vis-public">
+    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+      
+
+
+      <div class="header header-logged-in true" role="banner">
+  <div class="container clearfix">
+
+    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" ga-data-click="Header, go to dashboard, icon:logo">
+  <span class="mega-octicon octicon-mark-github"></span>
+</a>
+
+
+      <div class="site-search repo-scope js-site-search" role="search">
+          <form accept-charset="UTF-8" action="/swannodette/enlive-tutorial/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/swannodette/enlive-tutorial/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"></div>
+  <input class="js-site-search-field is-clearable" data-hotkey="s" name="q" placeholder="Search" data-global-scope-placeholder="Search GitHub" data-repo-scope-placeholder="Search" tabindex="1" autocapitalize="off" type="text">
+  <div class="scope-badge">This repository</div>
+</form>
+      </div>
+      <ul class="header-nav left" role="navigation">
+        <li class="header-nav-item explore">
+          <a class="header-nav-link" href="https://github.com/explore" data-ga-click="Header, go to explore, text:explore">Explore</a>
+        </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://gist.github.com/" data-ga-click="Header, go to gist, text:gist">Gist</a>
+          </li>
+          <li class="header-nav-item">
+            <a class="header-nav-link" href="https://github.com/blog" data-ga-click="Header, go to blog, text:blog">Blog</a>
+          </li>
+        <li class="header-nav-item">
+          <a class="header-nav-link" href="https://help.github.com/" data-ga-click="Header, go to help, text:help">Help</a>
+        </li>
+      </ul>
+
+    
+<ul class="header-nav user-nav right" id="user-links">
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link name" href="https://github.com/Angelore" data-ga-click="Header, go to profile, text:username">
+      <img alt="Stanislau" class="avatar" data-user="7239543" src="swannodette_enlive-tutorial_files/7239543.png" height="20" width="20">
+      <span class="css-truncate">
+        <span class="css-truncate-target">Angelore</span>
+      </span>
+    </a>
+  </li>
+
+  <li class="header-nav-item dropdown js-menu-container">
+    <a class="header-nav-link js-menu-target tooltipped tooltipped-s" href="#" aria-label="Create new..." data-ga-click="Header, create new, icon:add">
+      <span class="octicon octicon-plus"></span>
+      <span class="dropdown-caret"></span>
+    </a>
+
+    <div class="dropdown-menu-content js-menu-content">
+      
+<ul class="dropdown-menu">
+  <li>
+    <a href="https://github.com/new"><span class="octicon octicon-repo"></span> New repository</a>
+  </li>
+  <li>
+    <a href="https://github.com/organizations/new"><span class="octicon octicon-organization"></span> New organization</a>
+  </li>
+
+
+    <li class="dropdown-divider"></li>
+    <li class="dropdown-header">
+      <span title="swannodette/enlive-tutorial">This repository</span>
+    </li>
+      <li>
+        <a href="https://github.com/swannodette/enlive-tutorial/issues/new"><span class="octicon octicon-issue-opened"></span> New issue</a>
+      </li>
+</ul>
+
+    </div>
+  </li>
+
+  <li class="header-nav-item">
+        <a href="https://github.com/notifications" aria-label="You have no unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s" data-ga-click="Header, go to notifications, icon:read" data-hotkey="g n">
+        <span class="mail-status all-read"></span>
+        <span class="octicon octicon-inbox"></span>
+</a>
+  </li>
+
+  <li class="header-nav-item">
+    <a class="header-nav-link tooltipped tooltipped-s" href="https://github.com/settings/profile" id="account_settings" aria-label="Settings" data-ga-click="Header, go to settings, icon:settings">
+      <span class="octicon octicon-gear"></span>
+    </a>
+  </li>
+
+  <li class="header-nav-item">
+    <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="NTyR6ZINvoR68GtWuogcOMWXHcb5y8ZqA007EHnJA2MhS/4EQKJi1PfvAY+y4XUVfE+o120M8OLtaFjBaHKwJQ==" type="hidden"></div>
+      <button class="header-nav-link sign-out-button tooltipped tooltipped-s" aria-label="Sign out" data-ga-click="Header, sign out, icon:logout">
+        <span class="octicon octicon-sign-out"></span>
+      </button>
+</form>  </li>
+
+</ul>
+
+
+    
+  </div>
+</div>
+
+      
+
+        
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+    <div class="pagehead repohead instapaper_ignore readability-menu">
+      <div class="container">
+        
+<ul class="pagehead-actions">
+
+    <li class="subscription">
+      <form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="zJDtBHIroJhZYNt6WCkhGQJed1JVmXanepDWFY7Q37mxBTkHV6Ir2h4Z/69JY3NXhAODcJUoRR/KspzCOy+XBQ==" type="hidden"></div>  <input id="repository_id" name="repository_id" value="488800" type="hidden">
+
+    <div class="select-menu js-menu-container js-select-menu">
+      <a class="social-count js-social-count" href="https://github.com/swannodette/enlive-tutorial/watchers">
+        18
+      </a>
+      <a href="https://github.com/swannodette/enlive-tutorial/subscription" class="minibutton select-menu-button with-count js-menu-target" role="button" tabindex="0" aria-haspopup="true">
+        <span class="js-select-button">
+          <span class="octicon octicon-eye"></span>
+          Watch
+        </span>
+      </a>
+
+      <div class="select-menu-modal-holder">
+        <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
+          <div class="select-menu-header">
+            <span class="select-menu-title">Notifications</span>
+            <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+          </div> <!-- /.select-menu-header -->
+
+          <div class="select-menu-list js-navigation-container" role="menu">
+
+            <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input checked="checked" id="do_included" name="do" value="included" type="radio">
+                <h4>Not watching</h4>
+                <span class="description">Be notified when participating or @mentioned.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye"></span>
+                  Watch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_subscribed" name="do" value="subscribed" type="radio">
+                <h4>Watching</h4>
+                <span class="description">Be notified of all conversations.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-eye"></span>
+                  Unwatch
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <div class="select-menu-item-text">
+                <input id="do_ignore" name="do" value="ignore" type="radio">
+                <h4>Ignoring</h4>
+                <span class="description">Never be notified.</span>
+                <span class="js-select-button-text hidden-select-button-text">
+                  <span class="octicon octicon-mute"></span>
+                  Stop ignoring
+                </span>
+              </div>
+            </div> <!-- /.select-menu-item -->
+
+          </div> <!-- /.select-menu-list -->
+
+        </div> <!-- /.select-menu-modal -->
+      </div> <!-- /.select-menu-modal-holder -->
+    </div> <!-- /.select-menu -->
+
+</form>
+    </li>
+
+  <li>
+    
+  <div class="js-toggler-container js-social-container starring-container ">
+
+    <form accept-charset="UTF-8" action="/swannodette/enlive-tutorial/unstar" class="js-toggler-form starred js-unstar-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="i11bFpSCk4MveonP1Qf1jMY/B2gYxbYo+MH2LlFKBRgZSunVvDI/FRXPWQMHUKb560L08r0RSAoaKMSn+KbRbg==" type="hidden"></div>
+      <button class="minibutton with-count js-toggler-target star-button" aria-label="Unstar this repository" title="Unstar swannodette/enlive-tutorial">
+        <span class="octicon octicon-star"></span>
+        Unstar
+      </button>
+        <a class="social-count js-social-count" href="https://github.com/swannodette/enlive-tutorial/stargazers">
+          423
+        </a>
+</form>
+    <form accept-charset="UTF-8" action="/swannodette/enlive-tutorial/star" class="js-toggler-form unstarred js-star-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="WvqHuQrbiJFl/UZ38FzCinVfGGMd+Ro8xUWZMSjbxJ52ny+p+wNimzdywPe+UpIm1rMQiAjYOJgaIbVQpv64hQ==" type="hidden"></div>
+      <button class="minibutton with-count js-toggler-target star-button" aria-label="Star this repository" title="Star swannodette/enlive-tutorial">
+        <span class="octicon octicon-star"></span>
+        Star
+      </button>
+        <a class="social-count js-social-count" href="https://github.com/swannodette/enlive-tutorial/stargazers">
+          423
+        </a>
+</form>  </div>
+
+  </li>
+
+
+        <li>
+          <a href="https://github.com/swannodette/enlive-tutorial/fork" class="minibutton with-count js-toggler-target fork-button tooltipped-n" title="Fork your own copy of swannodette/enlive-tutorial to your account" aria-label="Fork your own copy of swannodette/enlive-tutorial to your account" rel="nofollow" data-method="post">
+            <span class="octicon octicon-repo-forked"></span>
+            Fork
+          </a>
+          <a href="https://github.com/swannodette/enlive-tutorial/network" class="social-count">51</a>
+        </li>
+
+</ul>
+
+        <h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+          <span class="mega-octicon octicon-repo"></span>
+          <span class="author"><a href="https://github.com/swannodette" class="url fn" itemprop="url" rel="author"><span itemprop="title">swannodette</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="https://github.com/swannodette/enlive-tutorial" class="js-current-repository" data-pjax="#js-repo-pjax-container">enlive-tutorial</a></strong>
+
+          <span class="page-context-loader">
+            <img alt="" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+          </span>
+
+        </h1>
+      </div><!-- /.container -->
+    </div><!-- /.repohead -->
+
+    <div class="container">
+      <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation">
+        <div class="repository-sidebar clearfix">
+            
+<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders" role="navigation" data-pjax="#js-repo-pjax-container" data-issue-count-url="/swannodette/enlive-tutorial/issues/counts">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="https://github.com/swannodette/enlive-tutorial" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /swannodette/enlive-tutorial">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Issues">
+        <a href="https://github.com/swannodette/enlive-tutorial/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /swannodette/enlive-tutorial/issues">
+          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
+          <span class="counter">7</span>
+
+          <img alt="" class="mini-loader" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
+      <a href="https://github.com/swannodette/enlive-tutorial/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /swannodette/enlive-tutorial/pulls">
+          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
+          <span class="counter">4</span>
+
+          <img alt="" class="mini-loader" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+</a>    </li>
+
+
+      <li class="tooltipped tooltipped-w" aria-label="Wiki">
+        <a href="https://github.com/swannodette/enlive-tutorial/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g w" data-selected-links="repo_wiki /swannodette/enlive-tutorial/wiki">
+          <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
+          <img alt="" class="mini-loader" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+</a>      </li>
+  </ul>
+  <div class="sunken-menu-separator"></div>
+  <ul class="sunken-menu-group">
+
+    <li class="tooltipped tooltipped-w" aria-label="Pulse">
+      <a href="https://github.com/swannodette/enlive-tutorial/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /swannodette/enlive-tutorial/pulse">
+        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
+        <img alt="" class="mini-loader" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+</a>    </li>
+
+    <li class="tooltipped tooltipped-w" aria-label="Graphs">
+      <a href="https://github.com/swannodette/enlive-tutorial/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /swannodette/enlive-tutorial/graphs">
+        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
+        <img alt="" class="mini-loader" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+</a>    </li>
+  </ul>
+
+
+</nav>
+
+              <div class="only-with-full-nav">
+                
+  
+<div class="clone-url open" data-protocol-type="http" data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/swannodette/enlive-tutorial.git" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url " data-protocol-type="ssh" data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone">
+  <h3><span class="text-emphasized">SSH</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="git@github.com:swannodette/enlive-tutorial.git" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="clone-url " data-protocol-type="subversion" data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/swannodette/enlive-tutorial" readonly="readonly" type="text">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+<p class="clone-options">You can clone with
+  <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>, <a href="#" class="js-clone-selector" data-protocol="ssh">SSH</a>, or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
+  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+    <span class="octicon octicon-question"></span>
+  </a>
+</p>
+
+
+  <a href="github-windows://openRepo/https://github.com/swannodette/enlive-tutorial" class="minibutton sidebar-button" title="Save swannodette/enlive-tutorial to your computer and use it in GitHub Desktop." aria-label="Save swannodette/enlive-tutorial to your computer and use it in GitHub Desktop.">
+    <span class="octicon octicon-device-desktop"></span>
+    Clone in Desktop
+  </a>
+
+                <a href="https://github.com/swannodette/enlive-tutorial/archive/master.zip" class="minibutton sidebar-button" aria-label="Download the contents of swannodette/enlive-tutorial as a zip file" title="Download the contents of swannodette/enlive-tutorial as a zip file" rel="nofollow">
+                  <span class="octicon octicon-cloud-download"></span>
+                  Download ZIP
+                </a>
+              </div>
+        </div><!-- /.repository-sidebar -->
+
+        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container="">
+          
+<span id="js-show-full-navigation"></span>
+
+<div class="repository-meta js-details-container ">
+    <div class="repository-description">
+      An Easy Introduction to Enlive
+    </div>
+
+
+
+</div>
+
+<div class="overall-summary overall-summary-bottomless">
+
+  <div class="stats-switcher-viewport js-stats-switcher-viewport">
+    <div class="stats-switcher-wrapper">
+    <ul class="numbers-summary">
+      <li class="commits">
+        <a data-pjax="" href="https://github.com/swannodette/enlive-tutorial/commits/master">
+            <span class="octicon octicon-history"></span>
+            <span class="num text-emphasized">
+              166
+            </span>
+            commits
+        </a>
+      </li>
+      <li>
+        <a data-pjax="" href="https://github.com/swannodette/enlive-tutorial/branches">
+          <span class="octicon octicon-git-branch"></span>
+          <span class="num text-emphasized">
+            2
+          </span>
+          branches
+        </a>
+      </li>
+
+      <li>
+        <a data-pjax="" href="https://github.com/swannodette/enlive-tutorial/releases">
+          <span class="octicon octicon-tag"></span>
+          <span class="num text-emphasized">
+            2
+          </span>
+          releases
+        </a>
+      </li>
+
+      <li>
+        
+  <a href="https://github.com/swannodette/enlive-tutorial/graphs/contributors">
+    <span class="octicon octicon-organization"></span>
+    <span class="num text-emphasized">
+      13
+    </span>
+    contributors
+  </a>
+      </li>
+    </ul>
+
+      <div class="repository-lang-stats">
+        <ol class="repository-lang-stats-numbers">
+          <li>
+              <a href="https://github.com/swannodette/enlive-tutorial/search?l=clojure">
+                <span class="color-block language-color" style="background-color:#db5855;"></span>
+                <span class="lang">Clojure</span>
+                <span class="percent">100%</span>
+              </a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  <div class="tooltipped tooltipped-s" aria-label="Show language statistics">
+    <a href="#" class="repository-lang-stats-graph js-toggle-lang-stats" style="background-color:#db5855">
+  <span class="language-color" style="width:100%; background-color:#db5855;" itemprop="keywords">Clojure</span>
+    </a>
+  </div>
+
+
+
+<div class="file-navigation in-mid-page">
+  <a href="https://github.com/swannodette/enlive-tutorial/find/master" class="js-show-file-finder minibutton empty-icon tooltipped tooltipped-s right" data-pjax="" data-hotkey="t" aria-label="Quickly jump between files">
+    <span class="octicon octicon-list-unordered"></span>
+  </a>
+    <a href="https://github.com/swannodette/enlive-tutorial/compare" aria-label="Compare, review, create a pull request" class="minibutton primary tooltipped tooltipped-s left compare-button" data-pjax="">
+      <span class="octicon octicon-git-compare"></span>
+    </a>
+
+  
+<div class="select-menu js-menu-container js-select-menu left">
+  <span class="minibutton select-menu-button js-menu-target css-truncate" data-hotkey="w" data-master-branch="master" data-ref="master" title="master" role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
+    <span class="octicon octicon-git-branch"></span>
+    <i>branch:</i>
+    <span class="js-select-button css-truncate-target">master</span>
+  </span>
+
+  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax="" aria-hidden="true">
+
+    <div class="select-menu-modal">
+      <div class="select-menu-header">
+        <span class="select-menu-title">Switch branches/tags</span>
+        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
+      </div> <!-- /.select-menu-header -->
+
+      <div class="select-menu-filters">
+        <div class="select-menu-text-filter">
+          <input aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags" type="text">
+        </div>
+        <div class="select-menu-tabs">
+          <ul>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
+            </li>
+            <li class="select-menu-tab">
+              <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
+            </li>
+          </ul>
+        </div><!-- /.select-menu-tabs -->
+      </div><!-- /.select-menu-filters -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/swannodette/enlive-tutorial/tree/0.2" data-name="0.2" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="0.2">0.2</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item selected">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/swannodette/enlive-tutorial/tree/master" data-name="master" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="master">master</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+          <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
+        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+
+
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/swannodette/enlive-tutorial/tree/v0.2" data-name="v0.2" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="v0.2">v0.2</a>
+            </div> <!-- /.select-menu-item -->
+            <div class="select-menu-item js-navigation-item ">
+              <span class="select-menu-item-icon octicon octicon-check"></span>
+              <a href="https://github.com/swannodette/enlive-tutorial/tree/v0.1" data-name="v0.1" data-skip-pjax="true" rel="nofollow" class="js-navigation-open select-menu-item-text css-truncate-target" title="v0.1">v0.1</a>
+            </div> <!-- /.select-menu-item -->
+        </div>
+
+        <div class="select-menu-no-results">Nothing to show</div>
+      </div> <!-- /.select-menu-list -->
+
+    </div> <!-- /.select-menu-modal -->
+  </div> <!-- /.select-menu-modal-holder -->
+</div> <!-- /.select-menu -->
+
+
+
+  <div class="breadcrumb"><span class="repo-root js-repo-root"><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="https://github.com/swannodette/enlive-tutorial" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">enlive-tutorial</span></a></span></span><span class="separator">/</span><form action="/swannodette/enlive-tutorial/new/master" aria-label="Fork this project and create a new file" class="js-new-blob-form tooltipped tooltipped-e new-file-link" method="post"><span aria-label="Fork this project and create a new file" class="js-new-blob-submit octicon octicon-plus" data-test-id="create-new-git-file" role="button"></span></form></div>
+</div>
+
+
+
+  
+  <div class="commit commit-tease js-details-container">
+    <p class="commit-title ">
+        <a href="https://github.com/swannodette/enlive-tutorial/commit/d72d75c044743e016e85e3114f4e1beaddc351dd" class="message" data-pjax="true" title="Merge pull request #18 from magomimmo/master
+
+Upgraded to clj version 1.5.1, enlive 1.1.1, ring 1.2.0">Merge pull request</a> <a href="https://github.com/swannodette/enlive-tutorial/pull/18" class="issue-link" title="Upgraded to clj version 1.5.1, enlive 1.1.1, ring 1.2.0">#18</a> <a href="https://github.com/swannodette/enlive-tutorial/commit/d72d75c044743e016e85e3114f4e1beaddc351dd" class="message" data-pjax="true" title="Merge pull request #18 from magomimmo/master
+
+Upgraded to clj version 1.5.1, enlive 1.1.1, ring 1.2.0">from magomimmo/master</a>
+        <span class="hidden-text-expander inline"><a href="#" class="js-details-target">…</a></span>
+    </p>
+      <div class="commit-desc"><pre>Upgraded to clj version 1.5.1, enlive 1.1.1, ring 1.2.0</pre></div>
+    <div class="commit-meta">
+      <button aria-label="Copy SHA" class="js-zeroclipboard zeroclipboard-link" data-clipboard-text="d72d75c044743e016e85e3114f4e1beaddc351dd" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+      <a href="https://github.com/swannodette/enlive-tutorial/commit/d72d75c044743e016e85e3114f4e1beaddc351dd" class="sha-block" data-pjax="">latest commit <span class="sha">d72d75c044</span></a>
+
+      <div class="authorship">
+        <img alt="David Nolen" class="avatar" data-user="13516" src="swannodette_enlive-tutorial_files/13516.png" height="20" width="20">
+        <span class="author-name"><a href="https://github.com/swannodette" rel="author">swannodette</a></span>
+        authored <time title="15 июля 2013 г., 19:53 GMT+3" class="updated" datetime="2013-07-15T16:53:15Z" is="relative-time">on 15 Jul 2013</time>
+
+      </div>
+    </div>
+  </div>
+
+  
+<div class="file-wrap">
+
+  <table class="files" data-pjax="">
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><span class="octicon octicon-alert"></span></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-directory"></span>
+            <img alt="" class="spinner" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/swannodette/enlive-tutorial/tree/master/src/tutorial" class="js-directory-link" id="6a2fd597b819052117e41fddd594e342-b8db608e3e4a9c9eddec9e02c9a60b57c2895a20" title="This path skips through empty directories"><span class="simplified-path">src/</span>tutorial</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/swannodette/enlive-tutorial/commit/c2586410082dfd326180f79ddc6f6053ea43f137" class="message" data-pjax="true" title="correct *base-url* link">correct *base-url* link</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="15 июля 2013 г., 13:27 GMT+3" datetime="2013-07-15T10:27:17Z" is="time-ago">a year ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/swannodette/enlive-tutorial/blob/master/.gitignore" class="js-directory-link" id="a084b794bc0759e7a6b77810e01874f2-ce7ba023771179286d5fcb631c792a7ac95160a3" title=".gitignore">.gitignore</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/swannodette/enlive-tutorial/commit/e7c39679000654e64c360083e46cf0dbc4883711" class="message" data-pjax="true" title="added /target to .gitignore">added /target to .gitignore</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="10 янв. 2013 г., 20:35 GMT+3" datetime="2013-01-10T17:35:36Z" is="time-ago">2 years ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/swannodette/enlive-tutorial/blob/master/project.clj" class="js-directory-link" id="0fff143854a4f5c0469a3819b978a483-a8495d2a76e250f92fd7d404ad5f2fd6bb852d4f" title="project.clj">project.clj</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/swannodette/enlive-tutorial/commit/b1a70b27b8dfa3304ca3aa6dd3d5679b0f5beed4" class="message" data-pjax="true" title="upgraded to clj 1.5.1, enlive 1.0.1 and ring 1.2.0">upgraded to clj 1.5.1, enlive 1.0.1 and ring 1.2.0</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="15 июля 2013 г., 13:23 GMT+3" datetime="2013-07-15T10:23:49Z" is="time-ago">a year ago</time></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="icon">
+            <span class="octicon octicon-file-text"></span>
+            <img alt="" class="spinner" src="swannodette_enlive-tutorial_files/octocat-spinner-32.gif" height="16" width="16">
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a href="https://github.com/swannodette/enlive-tutorial/blob/master/readme.textile" class="js-directory-link" id="42fd52f2df715b87ada21408964c08b0-7264c765eb69ff2901b39008e8a62ae4cd80f727" title="readme.textile">readme.textile</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+              <a href="https://github.com/swannodette/enlive-tutorial/commit/6d73a5c6b28cc14b7836148fc4908f6b2f374047" class="message" data-pjax="true" title="correct localhost link">correct localhost link</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time title="15 июля 2013 г., 13:30 GMT+3" datetime="2013-07-15T10:30:22Z" is="time-ago">a year ago</time></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+  <div id="readme" class="boxed-group flush clearfix announce instapaper_body textile">
+    <h3>
+      <span class="octicon octicon-book"></span>
+      readme.textile
+    </h3>
+
+    <article class="markdown-body entry-content" itemprop="mainContentOfPage"><h1>
+<a id="user-content-an-introduction-to-enlive" class="anchor" href="#an-introduction-to-enlive" aria-hidden="true"><span class="octicon octicon-link"></span></a>An Introduction to Enlive</h1>
+<p>Though <a href="http://github.com/cgrand/enlive">Christophe Grand’s Enlive</a>
+ has been around for sometime now the Clojure community has been slow to
+ embrace this useful library. I believe this is due simply to the lack 
+of good introductory documentation based on real examples. Please let me
+ know if you find this tutorial useful or helpful in any way. Feel free 
+to suggest additions, corrections, and improvements (even better fork 
+the repo and send me a patch).</p>
+<h2>
+<a id="user-content-what-you-need-to-know" class="anchor" href="#what-you-need-to-know" aria-hidden="true"><span class="octicon octicon-link"></span></a>What You need to Know</h2>
+<p>Not much. This tutorial assumes little about your exposure to 
+Clojure. At the very least you’ll need to have the Java Virtual Machine 
+(JVM) installed. I won’t go into great detail about Clojure’s features 
+but I’ll try to explain any concepts which may impede your understanding
+ of Enlive’s functionality.</p>
+<p>As the tutorials progress they will be more useful to you if you have
+ some experience with a modern webframework that ships with a HTML 
+templating library. If you do know Clojure the tutorials are fairly 
+amenable to skimming. My only real assumption is that you have some 
+experience at the command line.</p>
+<p>Enlive has many features and I can’t possibly cover them all here. 
+Fortunately the Clojure community is vibrant and helpful. If you run 
+into issues or have questions join the <a href="http://groups.google.com/group/enlive-clj">Enlive mailing list</a> or jump on the #clojure channel on irc.freenode.net.</p>
+<h2>
+<a id="user-content-html-templating" class="anchor" href="#html-templating" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML Templating</h2>
+<p>There are two real camps in HTML templating. The first which almost everyone is familiar with is the PHP style template:</p>
+<pre>&lt;?php
+for($i = 0; $i &lt; $len; $i++) {
+?&gt;&lt;p&gt;Foo &lt;?echo $i?&gt;&lt;/p&gt;&lt;?
+}
+?&gt;
+</pre>
+<p>This is of course enough to drive anyone insane and some templating 
+solutions like the one in Django have made marginal improvements:</p>
+<pre>{% for i in foo %}
+&lt;p&gt;Foo {{ i }}&lt;/p&gt;
+{% endfor %}
+</pre>
+<p>This is a bit easier on the eyes. But this isn’t very composable and 
+you’re stuck with a limited subset of your programming language. By not 
+composable I mean that building pages is largely a copy and paste affair
+ even when templating solutions support inheritance.</p>
+<p>This has driven many programmers to discard templating DSLs and to 
+generate markup directly in code. While this is fast and flexible as you
+ now have the power of function composition, it also means that you’re 
+putting quite a bit of distance between yourself and a designer 
+comfortable writing HTML and CSS.</p>
+<p>There are a few existing solutions that have a novel approach to this problem such as <a href="http://beebole.com/pure/">Pure</a>.</p>
+<p>Which brings us to Enlive. Enlive gives you the advantages of 
+designer accessible templates (since they’re just HTML) without losing 
+the power of function composition. As a result, your designer can create
+ all the various widgets for your website using only HTML and CSS and 
+you can compose your pages from any combination of their designs.</p>
+<h2>
+<a id="user-content-why-enlive" class="anchor" href="#why-enlive" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why Enlive?</h2>
+<p>Enlive presents a different approach from the more popular templating solutions:</p>
+
+	<ul>
+		<li>Code and markup are completely separate.</li>
+		<li>You get to use CSS like syntax to manipulate HTML.</li>
+		<li>Template inheritance isn’t some fancy trick, it’s just function composition.</li>
+		<li>You have access to the full power of Clojure to manipulate your templates (yes, macros!).</li>
+	</ul><p>When working with the standard templating solutions you 
+generally need to answer one of two questions, either “What type of text
+ am I going to generate?” or “What type of HTML emitting functions 
+should I write?”</p>
+<p>In contrast, with Enlive you usually break down the problem thus:</p>
+<ol>
+	<li>Determine which selectors match the part of the HTML document that you care about.</li>
+	<li>Determine which templates and snippets you need to write to compose your pages.</li>
+</ol>
+<h2>
+<a id="user-content-what-well-cover" class="anchor" href="#what-well-cover" aria-hidden="true"><span class="octicon octicon-link"></span></a>What We’ll Cover</h2>
+<p>There are six examples in total.</p>
+<p>The first one covers grabbing the headlines and points from Hackers 
+News. The next one shows how to make the code less redundant. The third 
+scrapes the New York Times front page since that presents more 
+challenges than Hacker News. The fourth example shows how to use Ring 
+and Enlive together. The fifth example shows how things like looping are
+ achieved without writing any code into the markup. The sixth example 
+shows that Enlive can do all the fancy template inheritance magic you 
+might be used to if you’re coming from Django or some other popular 
+modern webframework.</p>
+<h2>
+<a id="user-content-clone-this-repo" class="anchor" href="#clone-this-repo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clone This Repo</h2>
+<p>The usual:</p>
+<pre>git clone git://github.com/swannodette/enlive-tutorial.git
+</pre>
+<h2>
+<a id="user-content-install-leiningen" class="anchor" href="#install-leiningen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install Leiningen</h2>
+<p>In order to start playing around as fast possible you should use 
+Leiningen. It’ll take only a couple minutes to get through the 
+instructions <a href="http://github.com/technomancy/leiningen">here</a>.
+ Leiningen is the easy_install (Python) and gems (Ruby) of the Clojure 
+world. Phil Hagelberg and Co. have done a considerable amount of 
+excellent work to make dependency management simple. I truly envy the 
+new Clojurians who do not know the dark times before <strong>lein repl</strong> and <strong>lein swank</strong> :)</p>
+<p>Once you have Leiningen installed, switch into this repository’s directory. From there run the following command:</p>
+<pre>lein deps
+</pre>
+<p>This will install all of the dependencies required for getting 
+through the tutorial. This might take a minute and and will probably 
+generate <i>a lot</i> of output. While this may seem disconcerting, this
+ means you’ll have a fully functioning Clojure setup without needing to 
+bother with installing Emacs, configuring VIM, or an mucking around with
+ an IDE. Once the the dependencies are installed enter the following 
+command at your terminal:</p>
+<pre>lein repl
+</pre>
+<p>This will launch a Clojure REPL (Read-Eval-Print-Loop) that has the 
+classpath set properly. Be very thankful if you don’t know what the last
+ sentence means. Managing the classpath is one of the few real 
+annoyances when programming Clojure and it’s largely Java’s fault.</p>
+<h2>
+<a id="user-content-your-first-scrape-with-enlive--hacker-news" class="anchor" href="#your-first-scrape-with-enlive--hacker-news" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your First Scrape with Enlive – Hacker News</h2>
+<p>Enlive is fantastic for scraping the content of webpages. It allows 
+you to scrape content by using a syntax very similar to CSS selectors. 
+In the REPL type the following lines (note that <strong>user=&gt;</strong> is the REPL prompt, not something you type in):</p>
+<pre>user=&gt; (load "tutorial/scrape1")
+nil
+user=&gt; (in-ns 'tutorial.scrape1)
+nil
+tutorial.scrape1=&gt; *base-url*
+"https://news.ycombinator.com/"
+</pre>
+<p>The first line loads the file. Note that we need to specify that the <strong>scrape1</strong> file is to be found in the <strong>tutorial</strong> directory which is under the <strong>src</strong> directory of the repo. <strong>src</strong> is put onto the classpath by <strong>lein</strong> so we don’t need to specify it. Also take care to note that we left off the <strong>.clj</strong> extension. Unlike many scripting languages, loading a file actually <i>compiles</i> it. Clojure is not interpreted.</p>
+<p>We then use <code>in-ns</code> to put ourselves into that tutorial’s 
+namespace. By switching into the tutorial namespace we can use functions
+ defined in the tutorial without having to qualify them. It’s much 
+easier to type <code>*base-url*</code> than <code>tutorial.scrape1/*base-url*</code>.</p>
+<p>Let’s see what’s in that file. Open up <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/scrape1.clj"><strong>scrape1.clj</strong></a> with your favorite text editor (you can find it in <strong>your-tutorial-clone/src/tutorial/</strong>). You’ll see it’s a fairly short program.</p>
+<p>At the top of this file is the namespace declaration. This keeps your
+ code from clashing with other people’s code when they try to use your 
+library. The namespace declaration also includes another library, 
+Enlive, via <code>:require</code>. In this case we are generating an alias so we don’t have to type the very long namespace for Enlive.</p>
+<p>The function <code>fetch-url</code> grabs the contents of a url synchronously. <code>fetch-url</code> uses <code>html/html-resource</code> (remember we aliased <strong>net.cgrand.enlive-html</strong> to <strong>html</strong>
+ for convenience) another handy function defined in the Enlive library. 
+It takes raw HTML and converts it into a nested data structure (think 
+DOM minus tediousness).</p>
+<p>Note that the function <code>hn-headlines</code> uses <code>fetch-url</code>. But it’s also surrounded by a lot of funny stuff. You might have noticed <code>html/select</code>; <code>html/select</code> takes parsed html content and selects the nodes specified by a Clojure vector that looks very similar to a CSS selector.</p>
+<pre>[:td.title :a]
+</pre>
+<p>Now that looks kind of weird. But if you squint a little it might remind you of this:</p>
+<pre>td.title a
+</pre>
+<p>This is a CSS selector for matching all links inside of table 
+elements that have the CSS class “title”. If you’re a Javascript hacker 
+you should know this stuff by heart.</p>
+<p>So let’s break this down. <code>fetch-url</code> grabs the contents of the url and parses it into a data structure. <code>html/select</code> takes it and extracts only those nodes that match the selector – it always returns a vector of nodes. We then use Clojure’s <code>map</code> function to iterate over the vector’s elements applying a function to extract each nodes’ text-node, in this case <code>html/text</code> (<code>map</code> is actually lazy, but we’re not going to get into what that means in this Enlive tutorial).</p>
+<p>Believe it or not, these 10 lines of code are enough to extract all 
+of the headlines from the Hacker News front page. Let’s try it out at 
+the REPL now.</p>
+<pre>tutorial.scrape1=&gt; (hn-headlines)
+("A 'lorem ipsum' for images." "Google Reader Can Now Track Changes to Any Website - Even Without a Feed" "jQuery 1.4.1 Released" ... "More")
+</pre>
+<p>Nice. After this the next function <code>hn-points</code> should make
+ a lot more sense. It does the same thing but we grab the score from a 
+different place in the markup. Try to run this function as well.</p>
+<pre>tutorial.scrape1=&gt; (hn-points)
+... output ...
+</pre>
+<p>The last function takes the output of the two different functions and
+ prints out the headline and score for each item on Hackers News.</p>
+<pre>tutorial.scrape1=&gt; (print-headlines-and-points)
+... output ...
+</pre>
+<p><strong>print-headlines-and-points</strong> looks like a doozy doesn’t it?</p>
+<pre>(defn print-headlines-and-points []
+  (doseq [line (map #(str %1 " (" %2 ")") (hn-headlines) (hn-points))]
+    (println line)))
+</pre>
+<p>Let’s break it down. Again we have <code>map</code>. We know that it maps a function over a vector to return a new vector of elements with that function applied.</p>
+<pre>#(str %1 " (" %2 ")") ; is just shorthand for
+(fn [arg1 arg2] (str arg1 " (" arg2 ")")
+</pre>
+<p>This is an anonymous function. I’m not going to explain that here, they’re pretty popular these days. <code>str</code> is a built in function for doing string concatenation.</p>
+<p>Oddly this <code>map</code> is accepting not one list of things, but two! Check this out:</p>
+<pre>tutorial.scrape1=&gt; (map + [1 2 3] [4 5 6])
+(5 7 9)
+</pre>
+<p>Wow you can map two different vectors into one! Finally we have <code>doseq</code>. <code>doseq</code> is just a convenient way to work with lists when you’re dealing with <strong>side effects</strong>
+ like printing to the REPL. I’m not going to get into that here. All it 
+does is say take a list of things, assign each thing one at time to a 
+variable, and then execute the following expressions (hopefully you’re 
+actually doing something with that variable!)</p>
+<p>Not bad for 17 lines of code. One obvious problem here is that we 
+make two separate requests for the Hacker News front page. Let’s fix 
+this now.</p>
+<h2>
+<a id="user-content-your-second-scrape--improvements" class="anchor" href="#your-second-scrape--improvements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your Second Scrape – Improvements</h2>
+<p>Take a look at <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/scrape2.clj"><strong>scrape2.clj</strong></a>.
+ It’s also about 17 lines of code and it looks pretty much the same 
+except that we no longer have one function to grab headlines and another
+ for article points.</p>
+<pre>(defn hn-headlines-and-points []
+  (map html/text
+       (html/select (fetch-url *base-url*)
+                    #{[:td.title :a] [:td.subtext html/first-child]})))
+</pre>
+<p>This select grabs what we’re interested at the same time.</p>
+<pre>#{[:td.title :a] [:td.subtext first-child]}
+</pre>
+<p>It’s pretty much the same as:</p>
+<pre>td.title a, td.subtext:first-child
+</pre>
+<p>Lets try out the functions. Start up the REPL with <strong>lein repl</strong> if you’ve shut it down and run the following.</p>
+<pre>tutorial.scrape1=&gt; (load "scrape2")
+nil
+tutorial.scrape1=&gt; (in-ns 'tutorial.scrape2)
+nil
+tutorial.scrape2=&gt; (hn-headlines-and-points)
+... output ...
+</pre>
+<p>The above assumes you’ve continued from the first tutorial. If you’re
+ starting from scratch you’ll need to be more specific about your 
+loading, use <code>(load "tutorial/scrape2")</code> instead.</p>
+<p>The results are interleaved so we can use Clojure’s partition 
+function to pair them up and output them just like we did in the 
+previous scrape. The map looks a little bit different:</p>
+<pre>(defn print-headlines-and-points []
+  (doseq [line (map (fn [[h s]] (str h " (" s ")"))
+                    (partition 2 (hn-headlines-and-points)))]
+    (println line)))
+</pre>
+<p>To get a sense of what partition does let’s use the REPL again:</p>
+<pre>tutorial.scrape2=&gt; (partition 2 [1 2 3 4 5 6 7 8 9 0])
+((1 2) (3 4) (5 6) (7 8) (9 0))
+</pre>
+<p>Neat, it lets us pair things together. Exactly what we need.</p>
+<p>But what’s up with the <strong>fn</strong> this time?</p>
+<pre>(fn [[h s]] (str h " (" s ")"))
+</pre>
+<p>Say hello to destructuring. A lot of popular languages allow you to 
+destructure but probably not as ubiquitously as Clojure does. Here we 
+know that we are going to receive a two element vector for each item in 
+the vector we’re mapping over. So we’re just saying that we want to 
+assign the first element of that pair to the local variable <strong>h</strong> and the other to <strong>s</strong>.</p>
+<p>The rest of the function should be clear from the last tutorial.</p>
+<h2>
+<a id="user-content-your-third-scrape--the-new-york-times" class="anchor" href="#your-third-scrape--the-new-york-times" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your Third Scrape – The New York Times</h2>
+<p>Our third scrape tackles the New York Times whose front page 
+structure is considerably more complicated than Hacker News. Now to be 
+clear this not that useful since the New York Times provides a fairly 
+comprehensive list of RSS feeds.</p>
+<p>Take a look at <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/scrape3.clj"><strong>scrape3.clj</strong></a>. This is a bit longer. Before we dive in let’s see how it works. Start up the Clojure REPL if it’s not already up and running.</p>
+<pre>tutorial.scrape2=&gt; (load "scrape3")
+nil
+tutorial.scrape2=&gt; (in-ns 'tutorial.scrape3)
+nil
+tutorial.scrape3=&gt; (print-stories)
+... output ...
+</pre>
+<p>If you’re not continuing from a previous tutorial you’ll need to more specific about your loading, using <code>(load "tutorial/scrape3")</code> instead.</p>
+<p>Now this isn’t perfect for a variety of reasons but it works well 
+enough for the purposes of demonstration. Let’s look at the code. At the
+ top of the file we see that we have a variety of selectors.</p>
+<pre>(def ^:dynamic *story-selector*
+     [[:div.story
+       (html/but :.advertisement)
+       (html/but :.autosStory)
+       (html/but :.adCreative)]])
+</pre>
+<p>Here we are matching any div with the CSS class story that does not also have any of the other classes specified.</p>
+<pre>(def ^:dynamic *headline-selector*
+     #{[html/root :&gt; :h2 :a],
+       [html/root :&gt; :h3 :a]
+       [html/root :&gt; :h5 :a]}))
+</pre>
+<p>Here we know from looking at the markup of the page that headlines 
+might match any of these three selectors. The selectors will only match 
+headline tags that are children of the root element. We do this because 
+there are story divs on the New York Times webpage that actually have 
+multiple headlines underneath. The byline and story summary selectors 
+are pretty much the same.</p>
+<pre>(defn extract [node]
+  (let [headline (first (html/select [node] *headline-selector*))
+        byline   (first (html/select [node] *byline-selector*))
+        summary  (first (html/select [node] *summary-selector*))
+        result   (map html/text [headline byline summary])]
+    (zipmap [:headline :byline :summary] (map #(str/replace %  #"\n" "") result))))
+</pre>
+<p>Here we take a node and extract the match. Note that we have to call first on the result of <code>html/select</code> because <code>html/select</code> always returns a sequence of nodes and not a single node. <code>zipmap</code>
+ is a handy function, it allows us to take two sequences and zip them up
+ into a hash-map. So here we take only the text nodes from the matches 
+and remove any newline characters before we finally zip it up into a 
+tidy hash-map.</p>
+<p>Because this scrape is not comprehensive we might match empty stories, so we define a function <code>empty-story?</code> that checks for that. We use this to filter out any empty stories:</p>
+<pre>(defn print-stories []
+  (doseq [story (remove empty-story? (map extract (stories)))]
+    (print-story story)))
+</pre>
+<p>Hopefully by this point you can begin to make sense of the last few 
+functions. If one of the functions seems unclear I suggest calling that 
+function at the REPL with some dummy input to get a better sense of what
+ it does.</p>
+<p>So that’s it for scraping. It’s time to move on to how Enlive is useful for building your own pages.</p>
+<h2>
+<a id="user-content-your-first-template--the-basics" class="anchor" href="#your-first-template--the-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your First Template – The Basics</h2>
+<p>This is where things begin to get really interesting. We’re going to 
+use Ring, an ultralight HTTP framework. If you’re familiar with Rack or 
+CherryPy you will feel right at home.</p>
+<p>Let’s get started. If you aren’t running a REPL be sure to start one up from the repo directory with <strong>lein repl</strong>.</p>
+<p>Once you see the REPL prompt type the following:</p>
+<pre>tutorial.scrape3=&gt; (load "template1")
+nil
+tutorial.scrape3=&gt; (in-ns 'tutorial.template1)
+nil
+</pre>
+<p>If you’re not continuing from a previous tutorial you’ll need to be more specific about your loading, use <code>(load "tutorial/template1")</code> instead.</p>
+<p>You should see some output that lets you know that Ring is starting up a webserver on port 8080. Point your browser at <strong>http://localhost:8080</strong>. You should see a very boring page. Point your browser at <strong>http://localhost:8080/change</strong>. You should see something slightly different.</p>
+<p>First open <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template1.html"><strong>template1.html</strong></a>
+ and take a look at it. If you’re used to other templating solutions the
+ most shocking thing should be that there is absolutely no Clojure code 
+in this file. And there never will be. Period.</p>
+<p>Now let’s take a look at the code in <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template1.clj"><strong>template1.clj</strong></a>.
+ By now the namespace part should be familiar so we’ll skip over that. 
+After the namespace declaration we’ll see our first template definition:</p>
+<pre>(html/deftemplate index "tutorial/template1.html"
+  [ctxt]
+  [:p#message] (html/content (:message ctxt)))
+</pre>
+<p>Every template has the argument list <code>[name source args &amp; forms]</code>.
+ An Enlive template is a macro that when compiled will create a function
+ with the same name. This function will have the same signature as 
+defined by <strong>args</strong>. <strong>forms</strong> consists of pairs of Enlive selectors and a function to execute for each node that matches the selector.</p>
+<p>Here our template will find all <strong>p</strong> elements with the CSS id <strong>message</strong>.
+ CSS ids should be unique so ideally this will only match a single 
+element. Then we have the function which will receive this matching 
+element.</p>
+<pre>(html/content (:message ctxt))
+</pre>
+<p>This means we’ll replace the content of any matching node with the value for the key <code>:message</code> in the <code>ctxt</code> hash-map that was passed as parameter to this template. The important thing to grasp here is that <code>html/content</code> is a function which <i>returns</i> a function which will receive the matched element.</p>
+<p>For example what if we want a default message if there is no value for <code>:message</code> in <code>ctxt</code>? It would look something like this:</p>
+<pre>(html/deftemplate index "tutorial/template1.html"
+  [ctxt]
+  [:p#message] (fn [match]
+                 (if-let [msg (:message ctxt)]
+                   ((html/content msg) match)
+                   ((html/content "Nothing to see here!") match))))
+</pre>
+<p>It should be clear that <code>html/content</code> returns a function which will receive the matching element and modify it. This could be made slightly less verbose like so:</p>
+<pre>(html/deftemplate index "tutorial/template1.html"
+  [ctxt]
+  [:p#message] (html/content (get ctxt :message "Nothing to see here"))
+</pre>
+<p>This is a considerable improvement and shows off a couple nice 
+Clojure features. However even this is kinda meh. Why? Because what we 
+really want is not just a way to specify a default. Honestly the default
+ value will probably be in the markup itself! It would be much cooler to
+ leave the content of the node <i>unchanged</i> if we for some reason 
+hand it nil for it’s content value. This would allow us to easily 
+implement template inheritance which we’ll talk about later (grin).</p>
+<p>While Enlive does not have a great shortcut for expressing this 
+pattern of “change the content of this node only if given a non-nil 
+value”, since Clojure is a competent Lisp, it’s easy to write macros to 
+remove the boilerplate. I’ve included a handy macro called <code>maybe-content</code> which allows us to write the following instead:</p>
+<pre>(html/deftemplate index "tutorial/template1.html"
+  [ctxt]
+  [:p#message] (maybe-content (:message ctxt) "Nothing to see here!"))
+</pre>
+<p>Pretty slick eh? ;) We get the terseness of the <code>get</code> as 
+well as the plumbing for template inheritance. While macros are too 
+advanced of a topic to delve into here, having them around when you’re 
+templating HTML is incredibly powerful.</p>
+<p>The remainder of <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template1.clj"><strong>template1.clj</strong></a>
+ is specific to Ring and Moustache, a routing library. We’re not going 
+to get too deep into that because these tutorials are about Enlive, not 
+Ring and Moustache.</p>
+<pre>(def routes
+  (app
+   [""]       (fn [req] (render-to-response
+                         (index {})))
+   ["change"] (fn [req] (render-to-response
+                         (index {:message "We changed the message!"})))
+   [&amp;]        {:status 404
+               :body "Page Not Found"}))
+ 
+(defonce ^:dynamic *server* (run-server routes))
+</pre>
+<p>This is the Moustache route defining syntax. A couple things to note <code>render-to-response</code> is not a function of Enlive, it’s something I added via <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/utils.clj"><strong>utils.clj</strong></a> in the repository. <code>render-to-response</code> isn’t magic it’s just a function that looks like this:</p>
+<pre>(defn render [t]
+  (apply str t))
+
+(def render-to-response
+     (comp response render))
+</pre>
+<p>All this does is take a list of strings, concatenates them into a 
+single string, and serve back a proper Ring response. This is because 
+when an Enlive template function is called it returns a list of strings.</p>
+<p>Also note that our template function <code>index</code> must be called with at least one parameter. The last bit of <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template1.clj"><strong>template1.clj</strong></a> is just boilerplate for starting and stopping the server.</p>
+<p>Well that’s about it! You’ve seen your first Enlive template. While it may not seem like much yet, <i><strong>there was absolutely no mixing of code and HTML</strong></i>. If you bear with me till the third template tutorial, I think you’ll see just some how powerful this can be.</p>
+<h2>
+<a id="user-content-your-second-template--looping" class="anchor" href="#your-second-template--looping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your Second Template – Looping</h2>
+<p>A common operation when generating web pages is looping over some 
+piece of HTML because you need to present a list of items to the user. 
+People just love lists. How can Enlive create lists of HTML when there’s
+ no code in the template?! We’ll get into this in this tutorial.</p>
+<p>If you don’t have a Clojure REPL running start a new one with <strong>lein repl</strong>
+ at the commandline from the tutorial repo’s directory. Enter the 
+following (if you’re continuing from the previous tutorial you should 
+should stop the Ring app for that tutorial first):</p>
+<pre>tutorial.template1=&gt; (.stop *server*)
+nil
+tutorial.template1=&gt; (load "template2")
+nil
+tutorial.template1=&gt; (in-ns 'tutorial.template2)
+nil
+</pre>
+<p>If you’re not continuing from a previous tutorial you can ignore <code>(.stop *server*)</code> and you’ll need to be more specific about your loading, use <code>(load "tutorial/template2")</code> instead.</p>
+<p>Open up the file <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template2.html"><strong>template2.html</strong></a> in your text editor and give it a quick look over. Then open the file <strong>template2.html</strong> in your favorite web browser. It’s just page with a list of links, not that special. Point your browser at <strong>http://localhost:8080/</strong>. You should see pretty much the same thing except that we’ve dynamically inserted links.</p>
+<p>How did we do that if we have no inline code to define the loop? Let’s get into the code. Open up <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template2.clj"><strong>template2.clj</strong></a>
+ in your favorite text editor. At the top of the file you should see the
+ by now familiar namespace declaration. One thing we’ve changed is how 
+we import Enlive functionality.</p>
+<pre>(:use [net.cgrand.enlive-html
+         :only [deftemplate defsnippet content clone-for
+                nth-of-type first-child do-&gt; set-attr sniptest at emit*]]
+        [net.cgrand.moustache :only [app]]
+        [tutorial.utils :only [run-server render-to-response page-not-found]])
+</pre>
+<p>In this tutorial we’d rather use the Enlive functions without having to qualify them. So we import them using <code>:use</code> and specify that we only want to import a specific set of definitions.</p>
+<p>After that we declare a variable for holding a dummy context which we’re going to pass to our template.</p>
+<pre>(def ^:dynamic *dummy-context*
+     {:title "Enlive Template2 Tutorial"
+      :sections [{:title "Clojure"
+                  :links [{:text "Macros"
+                           :href "http://www.clojure.org/macros"}
+                          {:text "Multimethods &amp; Hierarchies"
+                           :href "http://www.clojure.org/multimethods"}]}
+                 {:title "Compojure"
+                  :links [{:text "Requests"
+                           :href "http://www.compojure.org/docs/requests"}
+                          {:text "Middleware"
+                           :href "http://www.compojure.org/docs/middleware"}]}
+                 {:title "Clojars"
+                  :links [{:text "Clutch"
+                           :href "http://clojars.org/org.clojars.ato/clutch"}
+                          {:text "JOGL2"
+                           :href "http://clojars.org/jogl2"}]}
+                 {:title "Enlive"
+                  :links [{:text "Getting Started"
+                           :href "http://wiki.github.com/cgrand/enlive/getting-started"}
+                          {:text "Syntax"
+                           :href "http://enlive.cgrand.net/syntax.html"}]}]})
+</pre>
+<p>This of course would be something that we probably would have read 
+out of a database. The take away here is that Clojure makes it easy to 
+define nested data structures. <code>*dummy-context*</code> is just a 
+hash-map (aka dictionary, aka associative array) of two key-value pairs.
+ The first pair is for the title of the page. The second pair is the 
+list of sections. Each section also has a title as well as a list of 
+links. Each link has some text and url. If you’re used to building up 
+JSON data structures from database results this should be pretty 
+familiar to you.</p>
+<h3>
+<a id="user-content-figuring-out-your-selectors" class="anchor" href="#figuring-out-your-selectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Figuring out your selectors</h3>
+<p>Using Enlive for templating usually involve two steps. The first step
+ is figuring out which part of the markup you want to make into a 
+component. Each component will become a snippet. A snippet is a reusable
+ mini-template that you can use when constructing larger templates. In 
+order to create a working snippet you need to determine the CSS selector
+ which will allow you to match exactly that part of the document.</p>
+<p>Consider our situation. Our designer has handed us some nice markup 
+and some CSS. To better convey the final result they have included some 
+dummy content. With a traditional templating solution this is a big no 
+no. With Enlive, working around it requires a minimal amount of effort. 
+So the key here is to identify the “model” element.</p>
+<p>In our case we have two distinct models, the first is the pair of the
+ section title and the links for that section. The second is the 
+individual link. In a templating DSL we would probably do something like
+ the following:</p>
+<pre>{% for section in sections %}
+&lt;h2 class="title"&gt;{{ section.title }}&lt;/h2&gt;
+&lt;ul class="content"&gt;
+ {% for link in section.links %} &lt;!-- Inner Loop --&gt;
+ &lt;a target="new" href="{{ link.href }}"&gt;{{ link.text }}&lt;/a&gt;
+ {% endfor %}
+&lt;/ul&gt;
+{% endfor %}
+</pre>
+<p>First, we want to be able handle the inner loop. On one level, as 
+you’re about see, there’s a little more typing involved upfront when 
+using Enlive. But you will end up with something that’s considerably 
+more reusable. In the traditional template the inner link loop and the 
+outer section loop are hopelessly interwined. You may have many pages on
+ your site that use the same section pattern but not the internal link 
+pattern. But since these can’t be separated you’ll have to do some copy 
+and paste. Not so with Enlive.</p>
+<p>So let’s define our link component. We don’t want the dummy content 
+so we really only want to match the very first link that satisfies our 
+need, the selector looks something like this:</p>
+<pre>(def ^:dynamic *link-sel* [[:.content (nth-of-type 1)] :&gt; first-child])
+</pre>
+<p>We only want to match the first ul element that we find that has the 
+content class and only the very first child inside that. This is the 
+selector that gets the job done. It’s analogous to:</p>
+<pre>.content:nth-of-type(1) &gt; *:first-child
+</pre>
+<p>It’s important to note that using <code>nth-of-type</code> requires an extra pair of brackets around the element that matches <code>:.content</code>.
+ This extra pair of brackets is easy to forget. Whenever you want to be 
+more specific about what type of element you want to match (beyond 
+matching on CSS id or class) you’ll need an extra pair of brackets.</p>
+<p>Now that we have our selector <code>defsnippet</code> will look like the following:</p>
+<pre>(defsnippet link-model "tutorial/template2.html" *link-sel*
+  [{text :text href :href}] 
+  [:a] (do-&gt; 
+        (content text) 
+        (set-attr :href href)))
+</pre>
+<p>Snippets are like templates with two main differences. First, 
+snippets take a selector. This means that they can match only specific 
+parts of an HTML document. The function produced by a <code>defsnippet</code> returns transformed content, <i>not</i> a list of strings the way <code>deftemplate</code> does. This snippet destructures it’s first argument (a hash-map) to extract the value of the keys <code>:text</code> and <code>:href</code>. We’re also introduced to <code>do-&gt;</code>.
+ This is a convenience, we often want to take the matched element and 
+apply a series of transformations to it. In this case we want to set the
+ content of the node as well as its href attribute.</p>
+<p>Let’s try out our snippet to see that it worked:</p>
+<pre>tutorial.template2&gt; (render (emit* (link-model {:href "bar" :text "foo"})))
+</pre>
+<p>Here we have to use <code>emit*</code> because snippets return a sequence of nodes not strings the way templates do. <code>render</code> is just a utility function for taking a number of strings and creating a single string.</p>
+<p>Okay now we want to loop over the sections. A section is a <strong>h2</strong> tag followed by a <strong>ul</strong>
+ tag. Again we need to figure out the correct selector. This time we’re 
+trying to emulate the following popular pattern for the outer loop:</p>
+<pre>{% for section in sections %} &lt;!-- OUTER LOOP --&gt;
+&lt;h2&gt;{{ section.title }}&lt;/h2&gt;
+&lt;ul&gt;
+  {% for link in section.links %}
+  &lt;a target="new" href="{{ link.href }}&gt;{{ x.text }}&lt;/a&gt;
+  {% endfor %}
+&lt;/ul&gt;
+{% endfor %}
+</pre>
+<p>Note that unlike the previous example what we’re looping over has no 
+“container”. That is, there is no surrounding element for the adjacent <strong>h2</strong> and <strong>ul</strong> tags. Enlive recently added support for “ranges” making it simple to express this pattern with Enlive templates.</p>
+<p>Again our HTML has some dummy content again. We only care about the first range of <strong>h2</strong> and <strong>ul</strong> tags, we don’t want to match any more than that. We can define a selector to do this like so:</p>
+<pre>(def ^:dynamic *section-sel* {[:.title] [[:.content (nth-of-type 1)]]})
+</pre>
+<p>There is no CSS selector that can represent this. Again take care to note that since we want to select only the first <strong>ul</strong> that we find, we need an extra pair of brackets around <code>:.content</code>. This is a common mistake to leave these out.</p>
+<p>Now that we have our selector we can define our section snippet like so. Pretty straightforward. Remember <code>defsnippet</code>
+ just creates a function which can take whichever arguments you specify 
+and returns the transformed markup. We’re creating links using <code>link-model</code> and putting those links inside of the <strong>ul</strong> in the section.</p>
+<pre>(defsnippet section-model "tutorial/template2.html" *section-sel*
+  [{:keys [title data]} model]
+  [:.title]   (content title)
+  [:.content] (content (map model data)))
+</pre>
+<p>Now let’s look at the template to see how we put this all together:</p>
+<pre>(deftemplate index "tutorial/template2.html"
+  [{:keys [title sections]}]
+  [:#title] (content title)
+  [:body]   (content (map #(section-model % link-model) sections)))
+</pre>
+<p>As you can see it looks really similar to <code>section-model</code>. Again the main difference is that templates don’t take selectors and the function they define returns a list of strings.</p>
+<p>That’s it. While we’ve seen some interesting features and while HTML 
+and code separation is cool, so far you may think Enlive involves <i>more</i>
+ work then it actually saves. That’s because we’re showing a very 
+trivial example. In the third example we’ll demonstrate just how much 
+time Enlive can save you when building something a little more real 
+world.</p>
+<h2>
+<a id="user-content-your-third-template--template-inheritance" class="anchor" href="#your-third-template--template-inheritance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Your Third Template – Template Inheritance</h2>
+<p>We now have a basic working idea of how templates work in Enlive. 
+Templates are simply functions. Now it’s still unclear if there is any 
+real advantages to the Enlive way. Hopefully in this tutorial we can 
+prove it’s immense power.</p>
+<p>Start a REPL if you don’t already have one running with <strong>lein repl</strong>. Type the following:</p>
+<pre>tutorial.template2=&gt; (.stop *server*)
+nil
+tutorial.template2=&gt; (load "template3")
+nil
+tutorial.template2=&gt; (in-ns 'tutorial.template3)
+nil
+</pre>
+<p>If you’re not continuing from a previous tutorial you should ignore <code>(stop-app)</code> and you’ll need to be more specific about your loading, use <code>(load "tutorial/template3")</code> instead.</p>
+<p>Point your favorite web browser to <strong>http://localhost:8080/base.html</strong>. You should see a fairly plain page. This is not a template. You can try opening up <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/base.html"><strong>base.html</strong></a> as a file in your browser and see that it’s identical to what is being served by Ring. Now point your browser at <strong>http://localhost:8080/3col.html</strong>. You should see another page that has a 3 column layout. Now point your browser at <strong>http://localhost:8080/a</strong>. The code required to do this follows:</p>
+<pre>(defn viewa []
+  (base {:title "View A"
+         :main (three-col {})}))
+</pre>
+<p>If you look at the markup for <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/base.html"><strong>base.html</strong></a> and <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/3col.html"><strong>3col.html</strong></a>
+ you will see that there is not one line of code! So how did we 
+magically put these two things together with so little code! Once you 
+understand what’s going, you’ll see that template inheritance in Enlive 
+is nothing more than combining some functions.</p>
+<p>Take a look at <strong>http://localhost:8080/navs.html</strong>. You should see some truly ugly nav bars ;) Now point your browser at <strong>http://localhost:8080/b</strong>.
+ You can see it’s easy to define a site wide layout, a 3 column middle 
+main layout, and customize the contents of each column. Again there’s 
+absolute no code in the markup, only the following code is needed to 
+construct this page:</p>
+<pre>(defn viewb []
+  (let [navl (nav1)
+        navr (nav2)]
+   (base {:title "View B"
+          :main (three-col {:left  navl
+                            :right navr})})))
+</pre>
+<p>Pretty slick. Templating with Enlive is just writing some Clojure 
+code. This is different from even the good HTML templating solutions out
+ there- few give you the full power of the language.</p>
+<p>One last live example before we dive into the code. Point your browser at <strong>http://localhost:8080/c/</strong>. Huh, looks pretty much like b. Point your browser at <strong>http://localhost:8080/c/reverse</strong>. Notice something different?</p>
+<p>We just flipped the two navs! How complicated is doing something like this?</p>
+<pre>(defn viewc
+  ([] (viewc nil))
+  ([action]
+     (let [navs [(nav1) (nav2)]
+           [navl navr] (if (= action "reverse") (reverse navs) navs)]
+       (base {:title "View C"
+              :main (three-col {:left  navl
+                                :right navr})}))))
+</pre>
+<p>Nothing more complicated than reversing a vector ;)</p>
+<p>So how does this actually work? Open up <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/template3.clj"><strong>template3.clj</strong></a> in your favorite text editor.</p>
+<h3>
+<a id="user-content-the-templates-and-snippets" class="anchor" href="#the-templates-and-snippets" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Templates and Snippets</h3>
+<p>The first thing to look at is the <strong>base</strong> template.</p>
+<pre>(html/deftemplate base "tutorial/base.html"
+  [{:keys [title header main footer]}]
+  [:#title]  (maybe-content title)
+  [:#header] (maybe-substitute header)
+  [:#main]   (maybe-substitute main)
+  [:#footer] (maybe-substitute footer))
+</pre>
+<p>Remember, <code>maybe-content</code> and <code>maybe-substitute</code> are not Enlive functions. They are two simple macros I’ve written for the purposes of this tutorial. <code>maybe-content</code> will only set the content of its node if its argument is not nil. <code>maybe-substitute</code> will only substitute its node if its argument is not nil.</p>
+<p>We do this because we want the ability to handle template 
+inheritance. Base represents the most basic template, and we can then 
+“inherit” from it, overriding only specific elements. Note that this 
+template uses <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/base.html"><strong>base.html</strong></a>. You should look at this file now.</p>
+<p>Next is the <code>three-col</code> snippet. It should be pretty obvious that this is a snippet for doing three column layout. Note that it uses <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/3col.html"><strong>3col.html</strong></a>, you should take a look at this file.</p>
+<p>The last bits are the various nav snippets and they are loaded from <a href="https://github.com/swannodette/enlive-tutorial/blob/master/src/tutorial/navs.html"><strong>navs.html</strong></a>. Again you should go over this file.</p>
+<h3>
+<a id="user-content-the-pages" class="anchor" href="#the-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Pages</h3>
+<p>Now for the fun part. The pages are just functions no more and no less. The first page <code>viewa</code> is just rendering the base template with the title “View A” and setting the main block of the page to the 3 column snippet.</p>
+<p>The page <code>viewb</code> does pretty much the same thing but this time we’ve added some navs for flair. Notice how much this function looks like <code>viewb</code>.</p>
+<p><code>viewc</code> does pretty much the same thing but it checks to 
+see if there is a parameter for reversing the navs. If present, the 
+order of the navs is reversed.</p>
+<p>It should be far more clear now what Enlive brings to the table over 
+traditional templating solutions. While preparing your templates and 
+snippets takes a little more work up front, building different pages 
+from these templates and snippets is very, very fast and making changes 
+is just moving a couple of values around in your functions, not mucking 
+around with a crippled DSL. Your designer can create all the various 
+widgets for your website using pure HTML and CSS and you can compose 
+your pages from any combination of their designs.</p>
+<h2>
+<a id="user-content-common-mistakes--caveats" class="anchor" href="#common-mistakes--caveats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Common Mistakes &amp; Caveats</h2>
+<h3>
+<a id="user-content-converting-numbers" class="anchor" href="#converting-numbers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Converting Numbers</h3>
+<p>When outputting numbers you need to convert them with <code>str</code>.</p>
+<pre>[:div.foobar] (content (str 1))
+</pre>
+<p>Since snippets take a selector sometimes you might not have set this 
+value correctly. This is usually the case if you’re not seeing any 
+output at all from a snippet. It’s really easy to test a snippet – 
+they’re just functions.</p>
+<h3>
+<a id="user-content-template-out-of-date" class="anchor" href="#template-out-of-date" aria-hidden="true"><span class="octicon octicon-link"></span></a>Template out of date</h3>
+<p>Your templates do not automatically reload. When you make edits to 
+your HTML or your template code I recommend running the following at the
+ REPL:</p>
+<pre>(load "your-library-name")
+</pre>
+<p>It’s a minor annoyance for all the benefits you reap. It also 
+wouldn’t be too hard to create a system that reloaded templates (at 
+least while in development mode) upon page refresh.</p>
+<p>Be careful, <i><strong>do not include the .clj extension</strong></i>. Also <i><strong>do not use -’s in your file name</strong></i>. If you want dashes you need to name the actual file using underscores.</p></article>
+  </div>
+
+
+        </div>
+
+      </div><!-- /.repo-container -->
+      <div class="modal-backdrop"></div>
+    </div><!-- /.container -->
+  </div><!-- /.site -->
+
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+      <li><a href="https://status.github.com/">Status</a></li>
+      <li><a href="https://developer.github.com/">API</a></li>
+      <li><a href="http://training.github.com/">Training</a></li>
+      <li><a href="http://shop.github.com/">Shop</a></li>
+      <li><a href="https://github.com/blog">Blog</a></li>
+      <li><a href="https://github.com/about">About</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+    </a>
+
+    <ul class="site-footer-links">
+      <li>© 2014 <span title="0.07363s from github-fe127-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy">Privacy</a></li>
+        <li><a href="https://github.com/security">Security</a></li>
+        <li><a href="https://github.com/contact">Contact</a></li>
+    </ul>
+  </div><!-- /.site-footer -->
+</div><!-- /.container -->
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="swannodette_enlive-tutorial_files/frameworks-153d6254b838872c8db73c8bd92905913f6f5b2164b7e40e52.js" type="text/javascript"></script>
+      <script async="async" crossorigin="anonymous" src="swannodette_enlive-tutorial_files/github-9aff85b0c22df0388606ce23a0388d77fa84e66682852b08f63fbe.js" type="text/javascript"></script>
+      
+      
+  
+
+
+<div style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;" class="global-zeroclipboard-container" id="global-zeroclipboard-html-bridge"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" type="application/x-shockwave-flash" data="swannodette_enlive-tutorial_files/ZeroClipboard.swf" height="100%" width="100%"><param name="allowScriptAccess" value="always"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=github.com%2C%2F%2Fgithub.com%2Chttps%3A%2F%2Fgithub.com&amp;swfObjectId=global-zeroclipboard-flash-bridge"></object></div></body></html>
