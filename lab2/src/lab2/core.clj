@@ -51,11 +51,10 @@
       (:location (:headers content))
       nil)))
 
-
-(:headers (fetch-url "http://google.com/nopagehere"))
-(fetch-url "http://fkasdflkajsdf.com")
-(fetch-url "file:///E:/Projects/Clojure/FP-Clojure/lab2/swannodette_enlive-tutorial.htm")
-(fetch-url "http://google.com")
+;(:headers (fetch-url "http://google.com/nopagehere"))
+;(fetch-url "http://fkasdflkajsdf.com")
+;(fetch-url "file:///E:/Projects/Clojure/FP-Clojure/lab2/swannodette_enlive-tutorial.htm")
+;(fetch-url "http://google.com")
 
 (defn is-html?
   "Returns true, if input string contains 'text/html'"
@@ -83,9 +82,9 @@
   [normalized-content]
   (un-nil (map #(:href (:attrs %)) (html/select normalized-content #{[:a]}))))
 
-(normalize-content (fetch-url "http://google.com"))
-(get-urls (normalize-content (fetch-url "http://google.com")))
-(get-urls (normalize-content (fetch-url "http://google.com")) #{[:a]})
+;(normalize-content (fetch-url "http://google.com"))
+;(get-urls (normalize-content (fetch-url "http://google.com")))
+;(count (get-urls (normalize-content (fetch-url "http://google.com"))))
 ;; End Service functions
 
 
@@ -108,21 +107,22 @@
 (defn generate-tree
   "Genereates a tree of nodes, returns the root node."
   [filename depth]
-  (let [urls (parse-file filename)
-        parent (create-root-node urls depth)]
-    (iterate-node parent urls depth)
-    parent
+  (let [urls (parse-file filename)               ; Get urls from file
+        parent (create-root-node urls depth)]    ; Create a parent node
+    (iterate-node parent urls depth)             ; Start iterating through nodes
+    parent                                       ; Return parent for printing
   )
 )
 
 (defn iterate-node
   "Iterates through nodes recursively."
   [node urls depth]
-  (let [new-depth (dec depth)]
-    (if (= depth 0)
-      node
-      (doseq [child (pmap #(parse-page node % depth) urls)]     ; http://clojuredocs.org/clojure.core/doseq
-        (iterate-node child (:uris child) new-depth))
+  (let [new-depth (dec depth)]                   ; Reduce depth by one
+    (if (= depth 0)                              ; If stumble upon a leaf,
+      node                                       ; return leaf
+      (doseq                                     ; http://clojuredocs.org/clojure.core/doseq
+        [child (pmap #(parse-page node % depth) urls)]     ; In parallel, create a child node from every url
+          (iterate-node child (:uris child) new-depth))    ; And iterate through it
     )
   )
 )
@@ -130,13 +130,12 @@
 (defn parse-page
   "Parses the page, returns child node."
   [parent url depth]
-  ;(println url)
-  (let [content (fetch-url url)
-        normalized-content (normalize-content content)
+  (let [content (fetch-url url)                         ; Download page
+        normalized-content (normalize-content content)  ; Create a list of enlive nodes
         status (:status content)
         id (uuid)]
-    (swap! (:children parent) conj
-      (if (not (nil? normalized-content))
+    (swap! (:children parent) conj                      ; Add a child to the list of children
+      (if (not (nil? normalized-content))               ; Decide if the child is empty
         (create-node
            id
            (:id parent)
@@ -166,25 +165,24 @@
 (defn print-results
   "Prints all results to the console."
   [node nesting]
-  (let [indent (* 2 nesting)   ; Generate the resulting string.
+  (let [indent (* 2 nesting)   ; Generate the resulting string
         uri (:uri node)
-        status-message
+        status-message         ; Generate a status message
           (if (= (:status node) 404)
             " bad url."
             (let [message (str " " (count (:uris node)) " link(s)")]
-              (if (not (nil? (:location node)))
+              (when (not (nil? (:location node)))
                 (str message " redirects to " (:location node)))
               message
             )
           )]
-    (if (> nesting 0)
+    (if (> nesting 0)         ; Do not print the root node
       (println (str (apply str (repeat indent " ")) uri status-message)))
   )
   (doseq [child @(:children node)] (print-results child (inc nesting)))   ; Repeat for all children
 )
 ;; End Core functions
 
-(generate-tree "addresses.txt" 3)
 
 ;; Test launch!
 (print-results (generate-tree "addresses.txt" 1) 0)
@@ -192,5 +190,14 @@
 
 
 ;; Entry point
-
+(defn -main
+  [& args]
+  (if (< (count args) 2)
+    (println "Not enough arguments. Please go and stay go.")
+    (let [filepath (first args)
+          nesting (last args)]
+      (print-results (generate-tree filepath nesting) 0)
+    )
+  )
+)
 ;; End Entry point

@@ -2,10 +2,6 @@
   (:require [clojure.test :refer :all]
             [lab2.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
-
 (deftest test-404
   (testing "The 404 address was handled incorrectly."
     (is (= 404 (:status (fetch-url "http://googfsdfasdfle.com"))))))
