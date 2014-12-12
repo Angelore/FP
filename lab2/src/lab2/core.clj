@@ -1,8 +1,7 @@
-(ns lab2.core
+(ns lab2.core (:gen-class)
   (:require [clojure.string :as string]
             [clj-http.client :as http]
-            [net.cgrand.enlive-html :as html])
-  (:use [slingshot.slingshot :only [try+]]))
+            [net.cgrand.enlive-html :as html]))
 
 ;; CRAAAAAAAAAAWLING IIIIIIIIIIIN MY SKIIIIIIIIIIIIN
 
@@ -16,7 +15,7 @@
 (un-nil [nil 2 3 nil 4])
 
 (defn uuid []
-  "GEt a random uuid."
+  "Get a random uuid."
   (str (java.util.UUID/randomUUID)))
 
 (defn create-node [id parent uris depth uri status children location]
@@ -31,11 +30,9 @@
 (defn fetch-url
   "Downloads html, if an exception occurs, sets status to 404 and headers to nil."
   [url]
-  (try+                 ; Example here: http://stackoverflow.com/questions/20708580/try-and-slingshot-try-differences
+  (try                ; Example here: http://stackoverflow.com/questions/20708580/try-and-slingshot-try-differences
     (http/get url)
-    ;(catch [:status 404] {:status 404 :headers nil}
-    ;  (println "No longer exists!"))
-    (catch Object _ {:status 404 :headers nil})
+    (catch Exception e {:status 404 :headers nil})
    ))
 
 (defn is-redirect-status?
@@ -126,6 +123,18 @@
     )
   )
 )
+
+;(defn iterate-node
+;  [node urls depth]
+;  (loop [node node urls urls new-depth (dec depth)]
+;    (if (= depth 0)
+;      node
+;      (doseq                                     ; http://clojuredocs.org/clojure.core/doseq
+;        [child (pmap #(parse-page node % depth) urls)]     ; In parallel, create a child node from every url
+;          (recur child (:uris child) (dec new-depth)))
+;    )
+;  )
+;)
 
 (defn parse-page
   "Parses the page, returns child node."
